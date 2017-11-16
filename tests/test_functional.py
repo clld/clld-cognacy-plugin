@@ -9,6 +9,7 @@ import pytest
     [
         ('/cognatesets', 'Cognatesets'),
         ('/cognatesets/1', 'cs: test'),
+        ('/cognatesets/1.geojson', 'cs: test'),
     ])
 def test_url(testapp, url, content):
     res = testapp.get(url)

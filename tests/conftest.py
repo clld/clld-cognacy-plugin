@@ -10,8 +10,8 @@ import pytest
 def testapp():
     from webtest import TestApp
     from clld.db.meta import DBSession, VersionedDBSession, Base
-    from clld.db.models.common import Dataset
-    from clld_cognacy_plugin.models import Cognateset
+    from clld.db.models import common
+    from clld_cognacy_plugin.models import Cognateset, Cognate
 
     def main():
         cfg = config.Configurator(settings={
@@ -29,8 +29,12 @@ def testapp():
     wsgi_app = main()
     Base.metadata.bind = DBSession.bind
     Base.metadata.create_all()
-    DBSession.add(Dataset(id='1', name='test app', domain='example.org'))
-    DBSession.add(Cognateset(id='1', name='cs: test'))
+    DBSession.add(common.Dataset(id='1', name='test app', domain='example.org'))
+    cs = Cognateset(id='1', name='cs: test')
+    lang = common.Language(id='l', latitude=2, longitude=2)
+    vs = common.ValueSet(id='vs', language=lang)
+    v = common.Value(id='v', name='abc', valueset=vs)
+    DBSession.add(Cognate(cognateset=cs, counterpart=v))
     yield TestApp(wsgi_app)
 
 
