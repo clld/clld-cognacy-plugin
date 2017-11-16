@@ -41,9 +41,9 @@ class Cognate(Base):
     cognate sets.
     """
     cognateset_pk = sa.Column(sa.Integer, sa.ForeignKey('cognateset.pk'))
-    cognateset = sa.orm.relationship(Cognateset, backref='counterparts')
+    cognateset = sa.orm.relationship(Cognateset, backref='cognates')
     counterpart_pk = sa.Column(sa.Integer, sa.ForeignKey('value.pk'))
-    counterpart = sa.orm.relationship(Value, backref='cognatesets')
+    counterpart = sa.orm.relationship(Value, backref='cognates')
     doubt = sa.Column(sa.Boolean, default=False)
     alignment = sa.Column(sa.Unicode)
 

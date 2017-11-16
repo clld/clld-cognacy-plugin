@@ -14,7 +14,7 @@ ${(map_ or request.map).render()}
 % endif
 
 <ul>
-% for cp in ctx.counterparts:
-<li>${h.link(request, cp.counterpart)}</li>
+% for co in ctx.cognates:
+<li>${h.link(request, co.counterpart)}</li>
 % endfor
 </ul>
