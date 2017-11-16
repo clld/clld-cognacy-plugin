@@ -28,6 +28,6 @@ git push --tags
   PyPI:
 ```
 rm dist/*
-python setup.py sdist
-twine upload dist/*
+python setup.py sdist bdist_wheel
+~/venvs/py34/bin/twine upload dist/*
 ```
