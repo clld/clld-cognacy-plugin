@@ -1,6 +1,3 @@
-# coding: utf8
-from __future__ import unicode_literals, print_function, division
-
 from pyramid import testing
 from pyramid import config
 import pytest

@@ -1,6 +1,3 @@
-# coding: utf8
-from __future__ import unicode_literals, print_function, division
-
 from clld.db.models.common import Parameter
 from clld.web.datatables.base import DataTable, LinkCol, IdCol, Col
 from clld.web.datatables.parameter import Parameters

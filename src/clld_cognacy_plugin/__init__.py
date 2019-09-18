@@ -1,11 +1,8 @@
-from __future__ import unicode_literals
-
 from clld_cognacy_plugin.models import Cognateset
 from clld_cognacy_plugin.interfaces import ICognateset
 from clld_cognacy_plugin.datatables import Cognatesets
 from clld_cognacy_plugin.maps import CognatesetMap
 from clld_cognacy_plugin.adapters import GeoJsonCognateset
-from clld_cognacy_plugin.interfaces import ICognateset
 
 
 def includeme(config):

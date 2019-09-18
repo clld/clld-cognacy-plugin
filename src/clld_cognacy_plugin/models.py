@@ -1,5 +1,3 @@
-from __future__ import unicode_literals
-
 from zope.interface import implementer
 import sqlalchemy as sa
 import sqlalchemy.orm  # noqa: F401

@@ -1,6 +1,3 @@
-# coding: utf8
-from __future__ import unicode_literals, print_function, division
-
 from clld.web.adapters.geojson import GeoJson
 from clld import interfaces
 
@@ -26,5 +23,5 @@ class GeoJsonCognateset(GeoJson):
     def feature_properties(self, ctx, req, valueset):
         values = [co.counterpart for co in ctx.cognates]
         return {
-            'label': ', '.join(v.name for v in valueset.values if v in values and v.name)
-            or self.get_language(ctx, req, valueset).name}
+            'label': ', '.join(v.name for v in valueset.values if v in values and v.name) or
+                     self.get_language(ctx, req, valueset).name}

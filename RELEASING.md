@@ -10,12 +10,20 @@ tox -r
 
 - Bump version number:
 ```
-git commit -a -m"bumped version number"
+git commit -a -m"<VERSION>"
 ```
 
 - Create a release tag:
 ```
-git tag -a v0.2 -m"first version to be released on pypi"
+git tag -a v<VERSION> -m"release <VERSION>"
+```
+
+- Release to PyPI:
+```
+python setup.py clean --all
+rm dist/*
+python setup.py sdist bdist_wheel
+twine upload dist/*
 ```
 
 - Push to github:
@@ -24,10 +32,10 @@ git push origin
 git push --tags
 ```
 
-- Make sure your system Python has ``setuptools-git`` installed and release to
-  PyPI:
-```
-rm dist/*
-python setup.py sdist bdist_wheel
-~/venvs/py34/bin/twine upload dist/*
+- Append `.dev0` to the version number in `setup.py` for the new development cycle.
+
+- Commit/push the version change:
+```shell
+git commit -a -m "bump version for development"
+git push origin
 ```

@@ -1,6 +1,3 @@
-# coding: utf8
-from __future__ import unicode_literals, print_function, division
-
 import sqlalchemy as sa
 import pytest
 from pyramid.threadlocal import get_current_request
