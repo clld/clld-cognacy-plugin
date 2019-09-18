@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='clld-cognacy-plugin',
-    version='0.2.0',
+    version='0.2.1.dev0',
     description='clld-cognacy-plugin',
     classifiers=[
         "Programming Language :: Python",
