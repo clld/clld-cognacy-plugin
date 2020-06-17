@@ -6,7 +6,7 @@ import pytest
 @pytest.fixture(scope='module')
 def testapp():
     from webtest import TestApp
-    from clld.db.meta import DBSession, VersionedDBSession, Base
+    from clld.db.meta import DBSession, Base
     from clld.db.models import common
     from clld_cognacy_plugin.models import Cognateset, Cognate
 
@@ -22,7 +22,6 @@ def testapp():
         return cfg.make_wsgi_app()
 
     DBSession.remove()
-    VersionedDBSession.remove()
     wsgi_app = main()
     Base.metadata.bind = DBSession.bind
     Base.metadata.create_all()

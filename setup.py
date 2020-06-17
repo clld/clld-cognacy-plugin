@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='clld-cognacy-plugin',
-    version='0.2.1.dev0',
+    version='0.2.1',
     description='clld-cognacy-plugin',
     classifiers=[
         "Programming Language :: Python",
@@ -10,6 +10,7 @@ setup(
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
         "Framework :: Pyramid",
         "Topic :: Internet :: WWW/HTTP",
         "Topic :: Internet :: WWW/HTTP :: WSGI :: Application",
