@@ -33,7 +33,6 @@ setup(
         'test': [
             'pytest>=4.6',
             'pytest-mock',
-            'mock',
             'coverage>=4.2',
             'pytest-cov',
             'webtest',
