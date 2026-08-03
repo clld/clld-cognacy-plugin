@@ -1,7 +1,13 @@
+"""
+Maps
+"""
 from clld.web.maps import Map, Layer
 
 
 class CognatesetMap(Map):
+    """
+    Map the reflexes of one cognate set.
+    """
     def get_layers(self):
         yield Layer(
             self.ctx.id,

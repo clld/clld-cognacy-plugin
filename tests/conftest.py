@@ -1,6 +1,7 @@
 from pyramid import testing
 from pyramid import config
 import pytest
+from pytest_clld._app import ExtendedTestApp
 
 
 @pytest.fixture(scope='module')
@@ -9,6 +10,7 @@ def testapp():
     from clld.db.meta import DBSession, Base
     from clld.db.models import common
     from clld_cognacy_plugin.models import Cognateset, Cognate
+    from clld_cognacy_plugin.interfaces import ICognate
 
     def main():
         cfg = config.Configurator(settings={
@@ -19,6 +21,7 @@ def testapp():
             ]})
         cfg.include('clld.web.app')
         cfg.include('clld_cognacy_plugin')
+        cfg.register_resource('cognate', Cognate, ICognate, with_index=True)
         return cfg.make_wsgi_app()
 
     DBSession.remove()
@@ -32,7 +35,7 @@ def testapp():
     vs = common.ValueSet(id='vs', language=lang, parameter=param)
     v = common.Value(id='v', name='abc', valueset=vs)
     DBSession.add(Cognate(cognateset=cs, counterpart=v))
-    yield TestApp(wsgi_app)
+    yield ExtendedTestApp(wsgi_app)
 
 
 @pytest.fixture(scope='module')

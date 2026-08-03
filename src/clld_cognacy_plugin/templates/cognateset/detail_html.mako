@@ -1,5 +1,6 @@
 <%inherit file="../${context.get('request').registry.settings.get('clld.app_template', 'app.mako')}"/>
 <%namespace name="util" file="../util.mako"/>
+<%! from clld_cognacy_plugin.models import Cognate %>
 <%! active_menu_item = "cognatesets" %>
 <%block name="title">${_('Cognateset')} ${ctx.name}</%block>
 
@@ -13,8 +14,9 @@
 ${(map_ or request.map).render()}
 % endif
 
-<ul>
-% for co in ctx.cognates:
-<li>${h.link(request, co.counterpart)}</li>
-% endfor
-</ul>
+<% dt = request.get_datatable('cognates', Cognate, cognateset=ctx) %>
+% if dt:
+<div>
+    ${dt.render()}
+</div>
+% endif

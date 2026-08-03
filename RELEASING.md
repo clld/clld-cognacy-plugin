@@ -3,6 +3,7 @@
 - PEP8
   ```shell
   flake8 src
+  pylint src
   ```
 
 - Do platform test via tox (making sure statement coverage is at 100%):

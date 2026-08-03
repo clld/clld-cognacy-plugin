@@ -1,7 +1,11 @@
+"""
+Utilities
+"""
 from clld.web.util import htmllib
 
 
 def concepticon_link(request, meaning):
+    """A link to a Concepticon concept set."""
     if not meaning.concepticon_id:
         return ''
     return htmllib.HTML.a(
@@ -10,4 +14,4 @@ def concepticon_link(request, meaning):
             height=20,
             width=30),
         title='corresponding concept set at Concepticon',
-        href="http://concepticon.clld.org/parameters/{0}".format(meaning.concepticon_id))
+        href=f"http://concepticon.clld.org/parameters/{meaning.concepticon_id}")

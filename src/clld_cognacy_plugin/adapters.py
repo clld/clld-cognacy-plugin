@@ -1,5 +1,9 @@
+"""
+Adapters
+"""
 from clld.web.adapters.geojson import GeoJson
 from clld import interfaces
+from clld.db.models.common import ValueSet
 
 
 class GeoJsonCognateset(GeoJson):
@@ -17,11 +21,11 @@ class GeoJsonCognateset(GeoJson):
     def feature_iterator(self, ctx, req):
         return [cognate.counterpart.valueset for cognate in ctx.cognates]
 
-    def get_language(self, ctx, req, valueset):
-        return valueset.language
+    def get_language(self, ctx, req, feature: ValueSet):
+        return feature.language
 
-    def feature_properties(self, ctx, req, valueset):
+    def feature_properties(self, ctx, req, feature: ValueSet):
         values = [co.counterpart for co in ctx.cognates]
         return {
-            'label': ', '.join(v.name for v in valueset.values if v in values and v.name) or
-                     self.get_language(ctx, req, valueset).name}
+            'label': ', '.join(v.name for v in feature.values if v in values and v.name) or
+                     self.get_language(ctx, req, feature).name}
