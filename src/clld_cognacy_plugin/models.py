@@ -51,6 +51,11 @@ class Cognate(Base, PolymorphicBaseMixin):
     doubt = sa.Column(sa.Boolean, default=False)
     alignment = sa.Column(sa.Unicode)
 
+    @property
+    def id(self):
+        """Resources need an identifier."""
+        return str(self.pk)
+
 
 class CognateReference(Base, HasSourceMixin):  # pylint: disable=C0115
     cognate_pk = sa.Column(sa.Integer, sa.ForeignKey('cognate.pk'))

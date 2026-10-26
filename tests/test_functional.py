@@ -15,6 +15,7 @@ def test_url(testapp, url, content):
 
 def test_cognates(testapp):
     testapp.get_dt('/cognates')
+    testapp.get('/cognates/1', status=404)
     testapp.get_dt('/cognates?sSearch_0=m&sSearch_1=n&iSortingCols=1&iSortCol_0=0')
     testapp.get_dt('/cognates?iSortingCols=1&iSortCol_0=1')
     testapp.get_dt('/cognates?cognateset=1')
