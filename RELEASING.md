@@ -11,7 +11,7 @@
   tox -r
   ```
 
-- Change setup.cfg version to the new version number.
+- Change pyproject.toml version to the new version number.
 
 - Bump version number:
   ```
@@ -37,7 +37,7 @@
   git push --tags
   ```
 
-- Append `.dev0` to the version number in `setup.cfg` for the new development cycle.
+- Append `.dev0` to the version number in `pyproject.toml` for the new development cycle.
 
 - Commit/push the version change:
   ```shell
