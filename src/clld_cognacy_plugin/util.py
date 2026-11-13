@@ -1,11 +1,9 @@
-"""
-Utilities
-"""
+"""Utilities."""
 from clld.web.util import htmllib
 
 
 def concepticon_link(request, meaning):
-    """A link to a Concepticon concept set."""
+    """Return a link to a Concepticon concept set."""
     if not meaning.concepticon_id:
         return ''
     return htmllib.HTML.a(

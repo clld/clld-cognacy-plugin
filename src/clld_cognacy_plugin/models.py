@@ -1,6 +1,4 @@
-"""
-Models
-"""
+"""Models."""
 from zope.interface import implementer
 import sqlalchemy as sa
 import sqlalchemy.orm  # noqa: F401  # pylint: disable=W0611
@@ -16,6 +14,7 @@ from clld_cognacy_plugin.interfaces import ICognateset, ICognate
 
 class MeaningMixin:  # pylint: disable=R0903
     """Add Concepticon mapping."""
+
     concepticon_id = sa.Column(sa.Integer)
 
 
@@ -34,16 +33,20 @@ class Cognateset(Base,
                  HasDataMixin,
                  HasFilesMixin):
     """A cognate set object."""
+
     contribution_pk = sa.Column(sa.Integer, sa.ForeignKey('contribution.pk'))
     contribution = sa.orm.relationship(Contribution, backref='cognatesets')
 
 
 @implementer(ICognate)
 class Cognate(Base, PolymorphicBaseMixin):
-    """
+    """Cognate model.
+
     The association table between counterparts for concepts in particular languages and
     cognate sets.
+
     """
+
     cognateset_pk = sa.Column(sa.Integer, sa.ForeignKey('cognateset.pk'))
     cognateset = sa.orm.relationship(Cognateset, backref='cognates')
     counterpart_pk = sa.Column(sa.Integer, sa.ForeignKey('value.pk'))

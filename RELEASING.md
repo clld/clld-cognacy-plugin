@@ -2,7 +2,7 @@
 
 - PEP8
   ```shell
-  flake8 src
+  ruff check src
   pylint src
   ```
 

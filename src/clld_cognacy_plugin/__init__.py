@@ -1,6 +1,4 @@
-"""
-clld plugin to support wordlists with cognacy judgements.
-"""
+"""clld plugin to support wordlists with cognacy judgements."""
 from clld_cognacy_plugin.models import Cognateset
 from clld_cognacy_plugin.interfaces import ICognateset
 from clld_cognacy_plugin.datatables import Cognatesets, Cognates

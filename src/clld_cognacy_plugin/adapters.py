@@ -1,13 +1,10 @@
-"""
-Adapters
-"""
+"""Adapters."""
 from clld.web.adapters.geojson import GeoJson
 from clld import interfaces
 from clld.db.models.common import ValueSet
 
 
 class GeoJsonCognateset(GeoJson):
-
     """Render a parameter's values as geojson feature collection."""
 
     def featurecollection_properties(self, ctx, req):

@@ -1,6 +1,4 @@
-"""
-Datatables
-"""
+"""Datatables."""
 from sqlalchemy.orm import joinedload
 from clld.db.util import icontains
 from clld.db.models.common import Parameter, Language, Value, ValueSet
@@ -59,7 +57,8 @@ class CounterpartCol(LinkCol):  # pylint: disable=C0115
 
 
 class Cognates(DataTable):
-    """This table should be used with a specific Cognateset only."""
+    """Table should be used with a specific Cognateset only."""
+
     __constraints__ = [Cognateset]
     cognateset: Cognateset
 
