@@ -3,7 +3,6 @@
 - PEP8
   ```shell
   ruff check src
-  pylint src
   ```
 
 - Do platform test via tox (making sure statement coverage is at 100%):
@@ -25,7 +24,6 @@
 
 - Release to PyPI:
   ```
-  python setup.py clean --all
   rm dist/*
   python -m build -n
   twine upload dist/*

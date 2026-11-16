@@ -18,11 +18,11 @@ class MeaningMixin:  # pylint: disable=R0903
     concepticon_id = sa.Column(sa.Integer)
 
 
-class Cognateset_data(Base, DataMixin):  # pylint: disable=C0103
+class Cognateset_data(Base, DataMixin):  # noqa: N801
     """Data properties of a cognate set."""
 
 
-class Cognateset_files(Base, FilesMixin):  # pylint: disable=C0103
+class Cognateset_files(Base, FilesMixin):  # noqa: N801
     """Files related to a cognate set."""
 
 
